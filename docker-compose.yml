@@ -1,0 +1,40 @@
+services:
+  prometheus:
+    ports:
+      - 9090:9090
+    image: prom/prometheus
+    container_name: prometheus
+    restart: unless-stopped
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    depends_on:
+      - dpmp
+
+  dpmp:
+    image: promexample
+    restart: always
+    ports:
+      - 8080:8080
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - mysqldb
+    environment:
+      - MYSQL_HOST=mysqldb
+      - MYSQL_PORT=3306
+      - MYSQL_USER=flavio
+      - MYSQL_PASSWORD=gon1ometr1a
+
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:8.0
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=People
+      - MYSQL_USER=flavio
+      - MYSQL_PASSWORD=gon1ometr1a
