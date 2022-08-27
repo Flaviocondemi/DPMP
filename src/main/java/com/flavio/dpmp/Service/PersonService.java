@@ -7,4 +7,7 @@ import java.util.List;
 public interface PersonService {
 
     public List<Person> getAllPerson();
+
+
+    public Person insertNewPerson(Person person);
 }

@@ -29,5 +29,10 @@ public class PersonServiceImpl implements PersonService {
         return personList;
     }
 
+    @Override
+    public Person insertNewPerson(Person person) {
+        return personRepository.save(person);
+    }
+
 
 }

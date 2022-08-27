@@ -4,10 +4,7 @@ import com.flavio.dpmp.Entity.Person;
 import com.flavio.dpmp.Service.Impl.PersonServiceImpl;
 import io.micrometer.core.annotation.Timed;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +26,12 @@ public class PersonController {
     List<Person> getPeople(){
         return (List<Person>) personServiceImpl.getAllPerson();
     }
+
+    @PostMapping(value= "/post")
+    @Timed(value="api_response_time",description="Api response time")
+    public @ResponseBody Person postPeople(@RequestBody Person person){
+        return personServiceImpl.insertNewPerson(person);
+    }
+
 
 }
