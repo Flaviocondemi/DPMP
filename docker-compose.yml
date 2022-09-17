@@ -13,6 +13,7 @@ services:
       - dpmp
 
   dpmp:
+    container_name: DPMP
     image: dpmp
     restart: always
     ports:
@@ -27,8 +28,14 @@ services:
       - MYSQL_PORT=3306
       - MYSQL_USER=flavio
       - MYSQL_PASSWORD=gon1ometr1a
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 200M
 
   some-mongo:
+    container_name: mymongo
     image: "mongo:5.0.10"
     restart: always
     ports:

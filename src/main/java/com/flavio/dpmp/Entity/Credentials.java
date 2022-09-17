@@ -19,8 +19,6 @@ public class Credentials {
     @Column(name = "mail")
     private String mail;
 
-    @OneToOne(mappedBy = "credentials")
-    private Person person;
 
     public void setId(Long id) {
         this.id = id;
