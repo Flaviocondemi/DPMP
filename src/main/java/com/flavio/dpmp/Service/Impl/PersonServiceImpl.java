@@ -5,6 +5,9 @@ import com.flavio.dpmp.Repository.PersonRepository;
 import com.flavio.dpmp.Service.PersonService;
 import io.prometheus.client.Summary;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,9 +27,29 @@ public class PersonServiceImpl implements PersonService {
         this.personRepository = personRepository;
     }
 
-    public List<Person> getAllPerson(){
-        List<Person> personList = (List<Person>) personRepository.findAll();
-        return personList;
+    @Override
+    public Page<Person> getAllPeople(Pageable amount){
+        return personRepository.findAllPeople(amount);
+    }
+
+    public List<Person> getAllPeopleLivingInASpecificCountry(String country){
+        return  personRepository.getAllPeopleLivingInASpecificCountry(country);
+    }
+
+    @Override
+    public List<Person> getAllPeopleWithSamePostcode(int postocde){
+        return  personRepository.getAllPeopleWithSamePostcode(postocde);
+    }
+
+    @Override
+    public List<Person>getAllPeopleWithPasswordStartingWithASpecificLetter(char letter){
+        return personRepository.getAllPeopleWithPasswordStartingWithASpecificLetter(letter);
+    }
+
+
+    @Override
+    public Person insertNewPerson(Person person) {
+        return personRepository.save(person);
     }
 
 

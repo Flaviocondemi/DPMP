@@ -1,4 +1,4 @@
 FROM openjdk:17
 
-ADD target/*.jar promexample.jar
+ADD target/*.jar dpmp.jar
 ENTRYPOINT ["java", "-jar", "dpmp.jar"]

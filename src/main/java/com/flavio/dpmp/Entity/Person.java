@@ -1,5 +1,7 @@
 package com.flavio.dpmp.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 
 @Table
@@ -19,8 +21,14 @@ public class Person {
     @Column(name = "gender")
     String gender;
 
-    @Column(name = "location")
-    String location;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "location_id")
+    Location location;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "credentials_id")
+    @JsonManagedReference
+    Credentials credentials;
 
     @Column(name = "mail")
     String mail;
@@ -48,6 +56,15 @@ public class Person {
         return surname;
     }
 
+    public Credentials getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(Credentials credentials) {
+        this.credentials = credentials;
+    }
+
+
     public void setSurname(String surname) {
         this.surname = surname;
     }
@@ -60,11 +77,11 @@ public class Person {
         this.gender = gender;
     }
 
-    public String getLocation() {
+    public Location getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 
