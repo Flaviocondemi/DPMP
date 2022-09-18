@@ -58,7 +58,7 @@ $    prom/prometheus
 
 ### DPMP spring project
 
-Edit Docker compose file, adding in mysql container config this lines:
+Edit Docker compose file, adding in mysql config block this lines:
 ```
  mysqldb:
     container_name: mysqldb
