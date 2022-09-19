@@ -1,4 +1,4 @@
-# DPMP - boost data stream performance
+# DPMP - boost data stream performance [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
 ## Table of contents
 * [Overview](#overview)
 * [Architecture Overview](#architecture-overview)
@@ -54,7 +54,7 @@ $    -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml \
 $    prom/prometheus
 ```
 
-**_NOTE:_**  You can find an example of **prometheus.yml** config file in the root folder of the repository
+> **_NOTE:_**  You can find an example of **prometheus.yml** config file in the root folder of the repository
 
 ### DPMP spring project
 
@@ -81,3 +81,20 @@ Now you have builded DPMP image and you are ready to execute it with docker comp
 ```
 $ docker compose up
 ```
+
+## Setup LoadGenerator
+The LoadGenerator make N http requests to one ore more endpoints exposed by the microservice. If you open LoadGenerato.py file, you can configure the amount of requests you can to the endpoint
+Before you run the LoadGenerator you can find in .py folder, let's wait docker compose finish the deploying.
+When docker compose is started, you can run the load generator either with terminal or with an IDE.
+> **Advice**: I suggest downloading Pycharm, so you can downlaod and import all the libraries listed in the .py file
+
+## Setup MetricsAnalyser
+When the LoadGenerator conclude all the requests, we can plot MetricsAnalyser results. The MetricsAnalyser show a plot with three different curves:
+* Train curve
+* Test curve
+* Predicted curve
+
+
+## MetricsAnalyser results
+Here you can see some results about the response-time 
+
