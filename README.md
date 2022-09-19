@@ -9,8 +9,8 @@
 DPMP is a master thesis work consisting in a sensitive analysis for performance optimization. Here you can find the architecture of the project:
 
 ## Architecture Overview
-<img src="https://user-images.githubusercontent.com/45661520/190897235-ff8b18ea-318b-4065-a7f7-f6c6d909b7bf.png">
 
+<img width="1188" alt="Schermata 2022-09-19 alle 14 34 26" src="https://user-images.githubusercontent.com/45661520/191018392-c6ad64c7-0963-4ff9-9fd7-ff989f56947e.png">
 
 	
 ## Technologies
