@@ -4,6 +4,9 @@
 * [Architecture Overview](#architecture-overview)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [LoadGenerator Setup](#loadgenerator-setup)
+* [MetricsAnalyser Setup](#metricsanalyser-setup)
+* [MetricsAnalyser Results](#metricsanalyser-results)
 
 ## Overview
 DPMP is a master thesis work consisting in a sensitive analysis for performance optimization. Here you can find the architecture of the project:
@@ -82,19 +85,27 @@ Now you have builded DPMP image and you are ready to execute it with docker comp
 $ docker compose up
 ```
 
-## Setup LoadGenerator
+## LoadGenerator Setup
 The LoadGenerator make N http requests to one ore more endpoints exposed by the microservice. If you open LoadGenerato.py file, you can configure the amount of requests you can to the endpoint
 Before you run the LoadGenerator you can find in .py folder, let's wait docker compose finish the deploying.
 When docker compose is started, you can run the load generator either with terminal or with an IDE.
 > **Advice**: I suggest downloading Pycharm, so you can downlaod and import all the libraries listed in the .py file
 
-## Setup MetricsAnalyser
-When the LoadGenerator conclude all the requests, we can plot MetricsAnalyser results. The MetricsAnalyser show a plot with three different curves:
-* Train curve
-* Test curve
-* Predicted curve
+After that, you can see all date saved in mongoDB.
+
+## MetricsAnalyser Setup 
+When the LoadGenerator concludes all the requests, we can plot MetricsAnalyser results. The MetricsAnalyser shows two different plot, hightlighting three curves:
+* **Train curve**: a set of point get from train dataset 
+* **Test curve**: a set of point get from test dataset 
+* **Predicted curve**: in the first plot is shown a predicted curved obtained from a linear regression, while the second curve is obtainer from a polynomial regression
 
 
-## MetricsAnalyser results
-Here you can see some results about the response-time 
+## MetricsAnalyser Results
+Here you can find some MetricsAnalyser plots:
+
+#### Linear Regression
+<img width="562" alt="Schermata 2022-09-20 alle 10 42 30" src="https://user-images.githubusercontent.com/45661520/191211407-064c0a57-4350-42e0-8508-5c6d24e9ccda.png">
+
+#### Polynomial Regression
+<img width="562" alt="Schermata 2022-09-20 alle 10 01 25" src="https://user-images.githubusercontent.com/45661520/191208468-d60bf2eb-60ec-41b4-9927-fad8641be4cb.png">
 
