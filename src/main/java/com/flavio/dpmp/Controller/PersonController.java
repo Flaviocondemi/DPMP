@@ -44,7 +44,8 @@ public class PersonController {
         return personServiceImpl.getAllPeopleWithSamePostcode(postcode);
     }
 
-    //post cioa
+    //post car cioa
+    @PostMapping(value= "/post")
     @PostMapping(value= "/post")
     @TrackExecutionTime(methodName = "postPeople")
     public @ResponseBody Person postPeople(@RequestBody Person person){
