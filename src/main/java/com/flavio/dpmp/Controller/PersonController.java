@@ -44,14 +44,14 @@ public class PersonController {
         return personServiceImpl.getAllPeopleWithSamePostcode(postcode);
     }
 
-    //post
+    //post cioa
     @PostMapping(value= "/post")
     @TrackExecutionTime(methodName = "postPeople")
     public @ResponseBody Person postPeople(@RequestBody Person person){
         return personServiceImpl.insertNewPerson(person);
     }
 
-    @GetMapping(value= "/get/LetterPassword")
+    @GetMapping(value= "/get/LetterPasswordLetterPassword")
     @TrackExecutionTime(methodName = "getAllPeopleWithPasswordStartingWithASpecificLetter")
     public @ResponseBody List<Person> getAllPeopleWithPasswordStartingWithASpecificLetter(@RequestBody char letter){
         return personServiceImpl.getAllPeopleWithPasswordStartingWithASpecificLetter(letter);
