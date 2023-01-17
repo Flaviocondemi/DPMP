@@ -51,7 +51,7 @@ public class PersonController {
         return personServiceImpl.insertNewPerson(person);
     }
 
-    @GetMapping(value= "/get/LetterPassword")
+    @GetMapping(value= "/get/LetterPasswordLetterPassword")
     @TrackExecutionTime(methodName = "getAllPeopleWithPasswordStartingWithASpecificLetter")
     public @ResponseBody List<Person> getAllPeopleWithPasswordStartingWithASpecificLetter(@RequestBody char letter){
         return personServiceImpl.getAllPeopleWithPasswordStartingWithASpecificLetter(letter);
